@@ -1,6 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
-!/.idea/dictionaries/zhaihao.xml
 .idea/*
+!.idea/dictionaries/
+!.idea/dictionaries/zhaihao.xml
 target
 *.sc
 .DS_Store
