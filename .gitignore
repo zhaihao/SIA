@@ -1,0 +1,8 @@
+# Created by .ignore support plugin (hsz.mobi)
+!/.idea/dictionaries/zhaihao.xml
+.idea/*
+target
+*.sc
+.DS_Store
+logs/
+data/*

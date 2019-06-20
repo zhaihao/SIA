@@ -1,0 +1,147 @@
+/*
+ * Copyright (c) 2019.
+ * OOON.ME ALL RIGHTS RESERVED.
+ * Licensed under the Mozilla Public License, version 2.0
+ * Please visit http://ooon.me or mail to zhaihao@ooon.me
+ */
+
+body {
+    font-family: "PT Mono", "PingFang HK", "PingFang SC", HanziPenSC-W3, PingFangHK-Light, serif;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+    color: #2c3f51;
+}
+
+code {
+    font-family: "PT Mono", "PingFang HK", "PingFang SC", HanziPenSC-W3, PingFangHK-Light, serif;
+}
+
+.md-typeset ul ul {
+    list-style-type: circle;
+}
+
+.md-typeset pre > code {
+    word-break: keep-all;
+    color: #37474F;
+}
+
+.md-typeset pre {
+    line-height: 2;
+}
+
+.md-typeset h2 {
+    border-left: 4px solid #333;
+    background: #f0f0f0;
+    padding: 0 15px;
+    margin-left: -15px;
+}
+
+.md-typeset h3::before {
+    content: "■" !important;
+    display: inline !important;
+    position: relative;
+    color: #555;
+    top: -0px;
+    margin-left: -15px;
+    margin-right: 5px;
+}
+
+.md-typeset blockquote {
+    background-color: rgba(102, 128, 153, 0.05);
+    color: inherit;
+    border-left: 10px solid rgba(102, 128, 153, 0.075)
+}
+
+.md-typeset code {
+    background-color: rgba(236, 165, 165, 0.15);
+    box-shadow: 0.29412em 0 0 rgba(236, 165, 165, 0.15), -0.29412em 0 0 rgba(236, 165, 165, 0.15);
+    color: rgba(226, 65, 59, 0.8);
+    text-shadow: none;
+    font-size: 12px;
+}
+
+.md-content__inner {
+    letter-spacing: 1px;
+    font-size: 14px;
+    line-height: 2;
+}
+
+/*post 右侧导航，已滚动过的内容 */
+.md-nav__link[data-md-state="blur"] {
+    color: rgba(0, 0, 0, 0.34);
+}
+
+/*post 右侧导航 list */
+.md-nav__list {
+    margin-left: 15px;
+}
+
+.md-source-file:hover {
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.md-typeset kbd {
+    padding: 0 0.29412em;
+    border: 0.1rem solid #c9c9c9;
+    border-radius: 0.3rem;
+    border-bottom-color: #bcbcbc;
+    background-color: #FCFCFC;
+    color: #555555;
+    font-size: 100%;
+    text-shadow: none;
+    box-shadow: 0 0.1rem 0 #b0b0b0;
+    word-break: break-word;
+}
+
+.md-typeset .md-typeset__table {
+    line-height: 1;
+}
+
+.md-typeset .md-typeset__table td {
+    line-height: 1.5;
+}
+
+.md-footer-copyright__highlight {
+    margin-top: 15%;
+}
+
+.hidden-left {
+    display: inline-block;
+    position: absolute;
+    top: -20px;
+    left: -30px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+    color: #e9e9e9;
+    text-shadow:none;
+}
+
+.hidden-right {
+    display: inline-block;
+    position: absolute;
+    top: -20px;
+    right: 8px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+    color: #e0e0e0;
+    text-shadow:none;
+}
+
+.md-sidebar {
+    position: absolute;
+    width: 32.2rem;
+    padding: 2.4rem 0;
+    overflow: hidden;
+    margin-left: -8rem;
+}
+.md-typeset #mdContent h2::before{
+    padding-top: 0;
+    margin-top:0;
+}
+
+tr:nth-child(even) {
+    background-color: #fafafa;
+}
