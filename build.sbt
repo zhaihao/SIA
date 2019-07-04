@@ -3,7 +3,7 @@ import sbt.Keys.scalacOptions
 scalaVersion in Global := "2.12.8"
 organization in Global := "me.ooon"
 
-scalacOptions in Global ++= Seq("-unchecked", "-deprecation", "-feature", "-Xfatal-warnings")
+scalacOptions in Global ++= Seq("-unchecked", "-deprecation", "-feature")
 resolvers in Global += "Local Maven Repository" at "file://" + Path.userHome.absolutePath + "/.m2/repository"
 //resolvers in Global += Resolver.url("ooon ivy repo", url("https://repo.ooon.me/release"))(Resolver.ivyStylePatterns)
 externalResolvers in Global := Resolver.combineDefaultResolvers(resolvers.value.toVector,

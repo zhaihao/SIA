@@ -34,7 +34,7 @@ object Dependencies extends AutoPlugin {
 
     // java
     lazy val sqlite = "org.xerial" % "sqlite-jdbc"          % "3.25.2"
-    lazy val mysql  = "mysql"      % "mysql-connector-java" % "6.0.6"
+    lazy val mysql  = "mysql"      % "mysql-connector-java" % "8.0.16"
 
     lazy val log = Seq(
       "com.typesafe.scala-logging" %% "scala-logging"  % "3.9.2",
