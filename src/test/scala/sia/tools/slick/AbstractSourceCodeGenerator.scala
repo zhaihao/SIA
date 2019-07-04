@@ -143,7 +143,7 @@ def $name($args): $name = {
 
   trait PlainSqlMapperDef extends super.PlainSqlMapperDef{
    def code = {
-    val types = columnsPositional.map(c => (if(c.asOption || c.model.nullable)s"<<?[${c.rawType}]"else s"<<[${c.rawType}]"))
+    val types = columnsPositional.map(c => (if(c.asOption || c.model.nullable || c.autoInc)s"<<?[${c.rawType}]"else s"<<[${c.rawType}]"))
     val dependencies = columns.map(_.exposedType).distinct.zipWithIndex.map{ case (t,i) => s"""e$i: GR[$t]"""}.mkString(", ")
     def result(args: String) = if(mappingEnabled) s"$factory($args)" else args
     val body =
@@ -218,7 +218,7 @@ class $name(_tableTag: Tag) extends profile.api.Table[$elementType](_tableTag, $
    import ColumnOption._
    import RelationalProfile.ColumnOption._
    import SqlProfile.ColumnOption._
-   def columnOptionCode = {
+   def columnOptionCode  =  {
     case ColumnOption.PrimaryKey => Some(s"O.PrimaryKey")
     case Default(value)     => Some(s"O.Default(${default.get})") // .get is safe here
     case SqlType(dbType)    => Some(s"""O.SqlType("$dbType")""")
@@ -247,7 +247,12 @@ class $name(_tableTag: Tag) extends profile.api.Table[$elementType](_tableTag, $
    }
    // Explicit type to allow overloading existing Slick method names.
    // Explicit type argument for better error message when implicit type mapper not found.
-   def code =s"""val $name: Rep[$actualType] = column[$actualType]("${model.name}"${options.map(", "+_).mkString("")})"""
+   def code ={
+     val newOptions = if(model.name == "create_time" || model.name == "update_time"){
+       options ++ Iterable("O.AutoInc")
+     } else options
+     s"""val $name: Rep[$actualType] = column[$actualType]("${model.name}"${newOptions.map(", "+_).mkString("")})"""
+   }
   }
 
   class PrimaryKeyDef(model: m.PrimaryKey) extends super.PrimaryKeyDef(model){
@@ -267,7 +272,7 @@ class $name(_tableTag: Tag) extends profile.api.Table[$elementType](_tableTag, $
     val (pkColumns, fkColumns) = (referencedColumns, referencingColumns).zipped.map { (p, f) =>
      val pk = s"r.${p.name}"
      val fk = f.name
-     if(p.model.nullable && !f.model.nullable) (pk, s"Rep.Some($fk)")
+     if((p.model.nullable || p.model.options.contains(ColumnOption.AutoInc)) && !f.model.nullable) (pk, s"Rep.Some($fk)")
      else if(!p.model.nullable && f.model.nullable) (s"Rep.Some($pk)", fk)
      else (pk, fk)
     }.unzip

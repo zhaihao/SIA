@@ -236,7 +236,7 @@ abstract class AbstractGenerator[Code,TermName,TypeName](model: m.Model)
      */
    def asOption = fakeNullable
    /** Possibly Option-wrapped Scala type of this column. @see rawType and @see exposedType */
-   final def actualType: Code      = if(model.nullable) optionType(rawType) else rawType
+   final def actualType: Code      = if(model.nullable || autoInc) optionType(rawType) else rawType
    /** Option of actualType if fakeNullable else actualType. */
    final def exposedType: Code  = if(asOption) optionType(actualType) else actualType
    /** Indicates whether this column should be user facing as a nullable column with default None even though it is not. Useful for autoInc columns. */
