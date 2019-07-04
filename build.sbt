@@ -23,7 +23,7 @@ lazy val root = (project in file("."))
     name                := "SIA",
     logBuffered in Test := false,
     libraryDependencies ++= Seq(spark, slick).flatten,
-    libraryDependencies ++= Seq(os_lib, mysql),
+    libraryDependencies ++= Seq(os_lib, mysql, nscala),
     scalacOptions in (Compile, doc) ++= Seq(
       "-implicits",
       "-groups",
