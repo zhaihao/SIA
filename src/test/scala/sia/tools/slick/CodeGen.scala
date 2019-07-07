@@ -30,7 +30,7 @@ class CodeGen extends BaseSpec with StrictLogging {
       profile               = "slick.jdbc.MySQLProfile",
       jdbcDriver            = "com.mysql.cj.jdbc.Driver",
       outputDir             = "/Users/zhaihao/code/XData/domain/src/main/scala",
-      pkg                   = "xdata.domain3",
+      pkg                   = "xdata.domain",
       user                  = Some("root"),
       password              = Some("mysql321o"),
       ignoreInvalidDefaults = true,
