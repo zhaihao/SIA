@@ -6,7 +6,10 @@
       <w>jdbc</w>
       <w>kudu</w>
       <w>mozilla</w>
+      <w>nbapi</w>
       <w>ooon</w>
+      <w>smtp</w>
+      <w>sqlite</w>
       <w>zhaihao</w>
     </words>
   </dictionary>

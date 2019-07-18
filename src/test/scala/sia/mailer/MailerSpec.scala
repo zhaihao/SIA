@@ -28,17 +28,17 @@ class MailerSpec extends BaseSpec with StrictLogging {
   val domain = "smtp.51nbapi.com"
   val user   = "dc_notify@51nbapi.com"
 
-  val mailerSettings = MailerSettings(
-    protocol = Some("smtp"),
-    host     = domain,
-    port     = "25",
-    failTo   = "dc_notify@51nbapi.com",
-    auth     = Some(true),
-    username = Some(user),
-    password = Some(pwd(domain, user))
-  )
-
   "test" in {
+    val mailerSettings = MailerSettings(
+      protocol = Some("smtp"),
+      host     = domain,
+      port     = "25",
+      failTo   = "dc_notify@51nbapi.com",
+      auth     = Some(true),
+      username = Some(user),
+      password = Some(pwd(domain, user))
+    )
+
     val email = Email(
       subject     = "Test mail",
       from        = EmailAddress("dc_notify", "dc_notify@51nbapi.com"),
