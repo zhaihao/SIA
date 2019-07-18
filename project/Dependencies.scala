@@ -21,7 +21,7 @@ object Dependencies extends AutoPlugin {
 
   object autoImport {
     // scala
-    lazy val orison    = "me.ooon"                %% "orison"        % "0.0.19"
+    lazy val orison    = "me.ooon"                %% "orison"        % "0.0.21"
     lazy val scalatest = "org.scalatest"          %% "scalatest"     % "3.0.7" % Test
     lazy val os_lib    = "com.lihaoyi"            %% "os-lib"        % "0.2.8"
     lazy val requests  = "com.lihaoyi"            %% "requests"      % "0.1.7"
@@ -35,6 +35,11 @@ object Dependencies extends AutoPlugin {
     // java
     lazy val sqlite = "org.xerial" % "sqlite-jdbc"          % "3.25.2"
     lazy val mysql  = "mysql"      % "mysql-connector-java" % "8.0.16"
+
+    lazy val java_mail = Seq(
+      "javax.mail"   % "javax.mail-api" % "1.6.2",
+      "com.sun.mail" % "javax.mail"     % "1.6.2"
+    )
 
     lazy val log = Seq(
       "com.typesafe.scala-logging" %% "scala-logging"  % "3.9.2",

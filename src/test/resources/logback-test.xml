@@ -1,0 +1,60 @@
+<!--
+  ~ Copyright (c) 2019.
+  ~ OOON.ME ALL RIGHTS RESERVED.
+  ~ Licensed under the Mozilla Public License, version 2.0
+  ~ Please visit http://ooon.me or mail to zhaihao@ooon.me
+  -->
+
+<configuration>
+
+    <conversionRule conversionWord="coloredLevel" converterClass="log.logback.ColoredLevel" />
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${application.home:-.}/logs/application.log</file>
+        <encoder>
+            <pattern>%date [%level] from %logger in %thread - %message%n%xException</pattern>
+        </encoder>
+    </appender>
+
+
+    <appender name="METRICS" class="ch.qos.logback.core.FileAppender">
+        <file>${application.home:-.}/logs/metrics.log</file>
+        <encoder>
+            <pattern>%date [%level] from %logger in %thread - %message%n%xException</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%-40(%-7(%coloredLevel) %logger{15}) - %message%n%xException{10}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ASYNC_FILE" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="FILE" />
+    </appender>
+
+    <appender name="ASYNC_STDOUT" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="STDOUT" />
+    </appender>
+
+    <logger name="play" level="INFO" />
+    <logger name="application" level="DEBUG" />
+
+    <logger name="com.zaxxer.hikari" level="INFO" />
+
+
+    <logger name="slick" level="INFO" />
+    <logger name="slick.jdbc.JdbcBackend.statement" level="DEBUG" />
+    <logger name="slick.jdbc.JdbcBackend.parameter" level="DEBUG" />
+    <logger name="slick.jdbc.JdbcBackend.benchmark" level="DEBUG" />
+    <logger name="slick.jdbc.StatementInvoker" level="DEBUG"/>
+
+    <logger name="play.filters.csrf" level="DEBUG"/>
+
+
+    <root level="DEBUG">
+        <appender-ref ref="ASYNC_STDOUT" />
+    </root>
+
+</configuration>
