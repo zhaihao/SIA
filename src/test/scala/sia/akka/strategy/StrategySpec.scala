@@ -80,16 +80,6 @@ class StrategySpec extends TestKit(ActorSystem("cafe")) with BaseSpecLike with S
       }
     }
 
-    // 厨房
-    class Kitchen extends Actor with ActorLogging {
-      override def receive: Receive = {
-        case x =>
-          context.children foreach { child =>
-            child ! x
-          }
-      }
-    }
-
     object Kitchen {
       def kitchenProps = {
         import Chef._
@@ -247,17 +237,6 @@ class StrategySpec extends TestKit(ActorSystem("cafe")) with BaseSpecLike with S
       }
     }
 
-    class Kitchen extends Actor with ActorLogging {
-      override def receive: Receive = {
-        case msg @ _ =>
-          context.children foreach (chef => chef forward msg)
-      }
-
-      override def postStop(): Unit = {
-        log.info("Kitchen close!")
-        super.postStop()
-      }
-    }
     object Kitchen {
       val kitchenDecider: PartialFunction[Throwable, SupervisorStrategy.Directive] = {
         case _: Chef.ChefBusy => SupervisorStrategy.Restart
@@ -340,7 +319,7 @@ class StrategySpec extends TestKit(ActorSystem("cafe")) with BaseSpecLike with S
           val amt  = menu(coffee) //计价
           val rcpt = Cafe.Receipt(coffee.toString, amt)
           printer ! PrintReceipt(customerRef, rcpt) //打印收据。可能出现卡纸异常
-          sender() ! Cafe.Sold(rcpt)             //通知Cafe销售成功  sender === Cafe
+          sender() ! Cafe.Sold(rcpt)                //通知Cafe销售成功  sender === Cafe
         case Terminated(_) =>
           log.info("Cashier says: Oh, kitchen is closed. Let's make the end of day!")
           context.system.terminate() //厨房打烊，停止营业。
@@ -429,6 +408,6 @@ class StrategySpec extends TestKit(ActorSystem("cafe")) with BaseSpecLike with S
 
     system.scheduler.schedule(1 second, 1 second, customer, Customer.OrderSpecial)
 
-    Thread.sleep(60*1000)
+    Thread.sleep(60 * 1000)
   }
 }
