@@ -46,6 +46,18 @@ object Dependencies extends AutoPlugin {
       "ch.qos.logback"             % "logback-classic" % "1.2.3"
     )
 
+    lazy val akka_version = "2.5.23"
+    lazy val akka = Seq(
+      "com.typesafe.akka" %% "akka-actor"              % akka_version,
+      "com.typesafe.akka" %% "akka-slf4j"              % akka_version,
+      "com.typesafe.akka" %% "akka-remote"             % akka_version,
+      "com.typesafe.akka" %% "akka-http"               % akka_version,
+      "com.typesafe.akka" %% "akka-http"               % akka_version,
+      "com.typesafe.akka" %% "akka-cluster"            % akka_version,
+      "com.typesafe.akka" %% "akka-testkit"            % akka_version % Test,
+      "com.typesafe.akka" %% "akka-multi-node-testkit" % akka_version % Test
+    )
+
     lazy val chill = Seq(
       "com.twitter" %% "chill"           % "0.9.3",
       "com.twitter" %% "chill-bijection" % "0.9.3"

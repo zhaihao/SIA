@@ -3,13 +3,19 @@
     <words>
       <w>datax</w>
       <w>datediff</w>
+      <w>hikaricp</w>
       <w>jdbc</w>
       <w>kudu</w>
+      <w>lihaoyi</w>
+      <w>mllib</w>
       <w>mozilla</w>
       <w>nbapi</w>
       <w>ooon</w>
+      <w>scalatest</w>
       <w>smtp</w>
       <w>sqlite</w>
+      <w>testkit</w>
+      <w>typesafe</w>
       <w>zhaihao</w>
     </words>
   </dictionary>
