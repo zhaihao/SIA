@@ -5,14 +5,13 @@
  * Please visit http://ooon.me or mail to zhaihao@ooon.me
  */
 
-package sia.akka.router
+package sia.akka.router.balancing
 
 import akka.actor.{Actor, ActorLogging, ActorSystem, OneForOneStrategy, Props, SupervisorStrategy}
 import akka.routing.BalancingPool
-import akka.testkit.{ImplicitSender, TestKit, TestKitBase}
+import akka.testkit.TestKitBase
 import com.typesafe.config.ConfigFactory
-import com.typesafe.scalalogging.StrictLogging
-import test.{BaseSpec, BaseSpecLike}
+import test.BaseSpec
 
 import scala.concurrent.duration._
 import scala.util.Random

@@ -5,13 +5,14 @@
  * Please visit http://ooon.me or mail to zhaihao@ooon.me
  */
 
-package sia.akka.router
+package sia.akka.router.balancing
 
 import akka.actor.{Actor, ActorLogging, ActorSystem, Props}
 import akka.routing.FromConfig
 import akka.testkit.{ImplicitSender, TestKit}
 import com.typesafe.config.ConfigFactory
 import test.BaseSpecLike
+
 import scala.concurrent.duration._
 
 /**

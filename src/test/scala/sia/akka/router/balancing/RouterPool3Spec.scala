@@ -5,17 +5,9 @@
  * Please visit http://ooon.me or mail to zhaihao@ooon.me
  */
 
-package sia.akka.router
+package sia.akka.router.balancing
 
-import akka.actor.{
-  Actor,
-  ActorLogging,
-  ActorSystem,
-  DeadLetter,
-  OneForOneStrategy,
-  Props,
-  SupervisorStrategy
-}
+import akka.actor.{Actor, ActorLogging, ActorSystem, DeadLetter, OneForOneStrategy, Props, SupervisorStrategy}
 import akka.routing.{DefaultResizer, RoundRobinPool}
 import akka.testkit.TestKitBase
 import com.typesafe.config.ConfigFactory
