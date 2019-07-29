@@ -27,7 +27,7 @@
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%-60(%date %-7(%coloredLevel) %logger{15}) [%X{akkaSource}] - %message%n%xException{10} </pattern>
+            <pattern>%-120(%date{HH:mm:ss.SSS} %-7(%coloredLevel) %logger [%X{akkaSource}]) - %message%n%xException{10} </pattern>
         </encoder>
     </appender>
 
@@ -38,6 +38,18 @@
     <appender name="ASYNC_STDOUT" class="ch.qos.logback.classic.AsyncAppender">
         <appender-ref ref="STDOUT"/>
     </appender>
+
+    <!-- apache spark-->
+    <logger name="io.netty" level="WARN"/>
+    <logger name="org.apache.parquet" level="WARN"/>
+    <logger name="org.apache.spark" level="WARN"/>
+    <logger name="org.apache.spark.scheduler" level="WARN"/>
+    <logger name="org.apache.spark.streaming.scheduler" level="WARN"/>
+    <logger name="org.spark_project.jetty" level="WARN"/>
+    <logger name="org.apache.spark.ui.JettyUtils" level="WARN"/>
+    <logger name="org.apache.spark.ui.SparkUI" level="INFO"/>
+
+    <logger name="org.apache.hadoop" level="INFO"/>
 
     <logger name="play" level="INFO"/>
     <logger name="application" level="DEBUG"/>
