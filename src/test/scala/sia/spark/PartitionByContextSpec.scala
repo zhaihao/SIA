@@ -25,7 +25,7 @@ class PartitionByContextSpec extends BaseSpec with SparkSpec with StrictLogging 
 
   import spark.implicits._
   import org.apache.spark.sql.functions._
-  val output = os.pwd / 'output /'spark
+  val output = os.pwd / 'output / 'spark
 
   "Dataset API" in {
     val df = Seq(

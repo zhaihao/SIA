@@ -20,5 +20,10 @@ import test.BaseSpec
 trait SparkSpec extends BaseSpec {
 
   val spark =
-    SparkSession.builder().appName("spark test application").master("local[*]").getOrCreate()
+    SparkSession
+      .builder()
+      .appName("spark test application")
+      .master("local[*]")
+      .config("spark.sql.sources.partitionOverwriteMode", "dynamic")
+      .getOrCreate()
 }
