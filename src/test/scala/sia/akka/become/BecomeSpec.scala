@@ -5,7 +5,7 @@
  * Please visit http://ooon.me or mail to zhaihao@ooon.me
  */
 
-package sia.akka.router.become
+package sia.akka.become
 
 import akka.actor.{Actor, ActorSystem, Props, Stash}
 import akka.testkit.{ImplicitSender, TestKitBase}
