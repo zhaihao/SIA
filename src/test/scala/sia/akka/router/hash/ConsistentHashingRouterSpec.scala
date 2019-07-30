@@ -43,7 +43,7 @@ class ConsistentHashingRouterSpec
       case class ReportTotal(cur: String) extends Counting
     }
 
-    class MoneyCounter extends Actor with ActorLogging {
+    class MoneyCounter extends Actor {
       import MoneyCounter._
       var currency: String = "RMB"
       var amount:   Double = 0
@@ -52,10 +52,10 @@ class ConsistentHashingRouterSpec
         case OneHand(cur, amt) =>
           currency = cur
           amount += amt
-          log.info(s"${self.path.name} received one hand of $amt$cur")
+          logger.info(s"${self.path.name} received one hand of $amt$cur")
           sender() ! s"received one hand of $amt$cur"
         case ReportTotal(_) =>
-          log.info(s"${self.path.name} has a total of $amount$currency")
+          logger.info(s"${self.path.name} has a total of $amount$currency")
           sender() ! s"total of $amount$currency"
       }
     }
