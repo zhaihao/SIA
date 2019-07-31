@@ -1,4 +1,5 @@
 import sbt.Keys.scalacOptions
+import com.typesafe.sbt.SbtMultiJvm.multiJvmSettings
 // global
 scalaVersion in Global := "2.12.8"
 organization in Global := "me.ooon"
@@ -18,6 +19,7 @@ cancelable in Global := true
 //
 
 lazy val root = (project in file("."))
+  .settings(multiJvmSettings: _*)
   .settings(
     moduleName          := "SIA",
     name                := "SIA",
@@ -37,6 +39,7 @@ lazy val root = (project in file("."))
       scmInfo.value.get.browseUrl + "/tree/master€{FILE_PATH}.scala"
     )
   )
+  .configs(MultiJvm)
 
 val ROOT = config("root")
 lazy val docs = (project in file("docs"))
