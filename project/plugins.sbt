@@ -9,3 +9,6 @@ addSbtPlugin("org.tpolecat"                      % "tut-plugin"                 
 addSbtPlugin("net.virtual-void"                  % "sbt-dependency-graph"       % "0.9.2")
 addSbtPlugin("com.typesafe.play"                 % "sbt-plugin"                 % "2.7.2")
 addSbtPlugin("com.typesafe.sbt"                  % "sbt-multi-jvm"              % "0.4.0")
+addSbtPlugin("com.thesamet"                      % "sbt-protoc"                 % "0.99.23")
+
+libraryDependencies += "com.thesamet.scalapb" %% "compilerplugin" % "0.9.0-M7"

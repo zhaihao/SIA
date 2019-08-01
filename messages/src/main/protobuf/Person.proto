@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+
+import "scalapb/scalapb.proto";
+
+option (scalapb.options) = {
+  scope: FILE
+  package_name: "sia.message"
+  flat_package: true
+  single_file: true
+  lenses: false
+  retain_source_code_info: false
+};
+
+message Person {
+    string name = 1;
+    int32 id = 2;
+    string email = 3;
+    repeated PhoneNumber phone = 4;
+
+    message PhoneNumber {
+         string number = 1;
+         PhoneType type = 2;
+    }
+
+    enum PhoneType {
+        MOBILE = 0;
+        HOME = 1;
+        WORK = 2;
+    }
+}

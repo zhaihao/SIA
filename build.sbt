@@ -40,6 +40,7 @@ lazy val root = (project in file("."))
     )
   )
   .configs(MultiJvm)
+  .dependsOn(messages)
 
 val ROOT = config("root")
 lazy val docs = (project in file("docs"))
@@ -83,4 +84,16 @@ lazy val docs = (project in file("docs"))
     autoAPIMappings := true,
     SiteScaladocPlugin
       .scaladocSettings(ROOT, mappings in (Compile, packageDoc) in root, "api/")
+  )
+
+lazy val messages = (project in file("messages"))
+  .settings(
+    moduleName                 := "messages",
+    name                       := "SIA - messages",
+    logBuffered in Test        := false,
+    libraryDependencies        += "com.thesamet.scalapb" %% "scalapb-runtime" % scalapb.compiler.Version.scalapbVersion % "protobuf",
+    PB.protoSources in Compile := Seq(sourceDirectory.value / "main" / "protobuf"),
+    PB.targets in Compile := Seq(
+      scalapb.gen() -> sourceDirectory.value / "main" / "scala"
+    )
   )
