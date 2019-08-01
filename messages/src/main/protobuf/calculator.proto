@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+
+import "scalapb/scalapb.proto";
+
+option (scalapb.options) = {
+  scope: FILE
+  package_name: "sia.akka.remote"
+  flat_package: true
+  single_file: true
+  lenses: false
+  retain_source_code_info: false
+};
+
+message MathOps {
+    double num = 1;
+    Op op = 2;
+
+    enum Op {
+        Set = 0;
+        Get = 1;
+        Reset = 2;
+        Add = 3;
+        Sub = 4;
+        Mul = 5;
+        Div = 6;
+    }
+}

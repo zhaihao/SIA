@@ -17,6 +17,7 @@
       <w>protobuf</w>
       <w>resizer</w>
       <w>routee</w>
+      <w>scalapb</w>
       <w>scalatest</w>
       <w>smtp</w>
       <w>sqlite</w>

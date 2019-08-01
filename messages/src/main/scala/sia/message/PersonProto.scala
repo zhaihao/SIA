@@ -388,7 +388,7 @@ object PersonProto extends _root_.scalapb.GeneratedFileObject {
     )
   private lazy val ProtoBytes: Array[Byte] =
       scalapb.Encoding.fromBase64(scala.collection.immutable.Seq(
-  """CgxQZXJzb24ucHJvdG8aFXNjYWxhcGIvc2NhbGFwYi5wcm90byKsAgoGUGVyc29uEh0KBG5hbWUYASABKAlCCeI/BhIEbmFtZ
+  """CgxwZXJzb24ucHJvdG8aFXNjYWxhcGIvc2NhbGFwYi5wcm90byKsAgoGUGVyc29uEh0KBG5hbWUYASABKAlCCeI/BhIEbmFtZ
   VIEbmFtZRIXCgJpZBgCIAEoBUIH4j8EEgJpZFICaWQSIAoFZW1haWwYAyABKAlCCuI/BxIFZW1haWxSBWVtYWlsEjUKBXBob25lG
   AQgAygLMhMuUGVyc29uLlBob25lTnVtYmVyQgriPwcSBXBob25lUgVwaG9uZRpkCgtQaG9uZU51bWJlchIjCgZudW1iZXIYASABK
   AlCC+I/CBIGbnVtYmVyUgZudW1iZXISMAoEdHlwZRgCIAEoDjIRLlBlcnNvbi5QaG9uZVR5cGVCCeI/BhIEdHlwZVIEdHlwZSIrC
