@@ -21,16 +21,16 @@ object Dependencies extends AutoPlugin {
 
   object autoImport {
     // scala
-    lazy val orison    = "me.ooon"                %% "orison"         % "0.0.21"
-    lazy val scalatest = "org.scalatest"          %% "scalatest"      % "3.0.7" % Test
-    lazy val os_lib    = "com.lihaoyi"            %% "os-lib"         % "0.2.8"
-    lazy val requests  = "com.lihaoyi"            %% "requests"       % "0.1.7"
-    lazy val play_json = "com.typesafe.play"      %% "play-json"      % "2.7.2"
-    lazy val scalaz    = "org.scalaz"             %% "scalaz-core"    % "7.2.27"
-    lazy val vegas     = "org.vegas-viz"          %% "vegas"          % "0.3.12-om"
-    lazy val squants   = "org.typelevel"          %% "squants"        % "1.4.0"
-    lazy val scraper   = "net.ruippeixotog"       %% "scala-scraper"  % "2.1.0"
-    lazy val nscala    = "com.github.nscala-time" %% "nscala-time"    % "2.22.0"
+    lazy val orison    = "me.ooon"                %% "orison"        % "0.0.21"
+    lazy val scalatest = "org.scalatest"          %% "scalatest"     % "3.0.7" % Test
+    lazy val os_lib    = "com.lihaoyi"            %% "os-lib"        % "0.2.8"
+    lazy val requests  = "com.lihaoyi"            %% "requests"      % "0.1.7"
+    lazy val play_json = "com.typesafe.play"      %% "play-json"     % "2.7.2"
+    lazy val scalaz    = "org.scalaz"             %% "scalaz-core"   % "7.2.27"
+    lazy val vegas     = "org.vegas-viz"          %% "vegas"         % "0.3.12-om"
+    lazy val squants   = "org.typelevel"          %% "squants"       % "1.4.0"
+    lazy val scraper   = "net.ruippeixotog"       %% "scala-scraper" % "2.1.0"
+    lazy val nscala    = "com.github.nscala-time" %% "nscala-time"   % "2.22.0"
 
     // java
     lazy val sqlite = "org.xerial" % "sqlite-jdbc"          % "3.25.2"
@@ -53,6 +53,7 @@ object Dependencies extends AutoPlugin {
       "com.typesafe.akka" %% "akka-remote"             % akka_version,
       "com.typesafe.akka" %% "akka-http"               % "10.1.9",
       "com.typesafe.akka" %% "akka-cluster"            % akka_version,
+      "com.typesafe.akka" %% "akka-cluster-metrics"    % akka_version,
       "com.typesafe.akka" %% "akka-testkit"            % akka_version % Test,
       "com.typesafe.akka" %% "akka-multi-node-testkit" % akka_version % Test
     )
@@ -93,7 +94,7 @@ object Dependencies extends AutoPlugin {
     )
 
     val excludes = Seq(
-      ExclusionRule("org.slf4j", "slf4j-log4j12"),
+      ExclusionRule("org.slf4j", "slf4j-log4j12")
     )
 
     val overrides = Seq()

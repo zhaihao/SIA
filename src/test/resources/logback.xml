@@ -67,6 +67,8 @@
 
     <logger name="play.filters.csrf" level="DEBUG"/>
 
+    <logger name="akka" level="INFO" />
+
 
     <root level="DEBUG">
         <appender-ref ref="STDOUT"/>
