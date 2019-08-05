@@ -72,7 +72,7 @@ object StartClusterSpec extends MultiNodeConfig {
         s"""
            |akka{
            |  extensions = ["akka.cluster.metrics.ClusterMetricsExtension"]
-           |  
+           |
            |  cluster{
            |    metrics.native-library-extract-folder=target/native/${node.name}
            |  }
@@ -87,6 +87,7 @@ object StartClusterSpec extends MultiNodeConfig {
         |akka {
         |  loggers = ["akka.event.slf4j.Slf4jLogger"]
         |  loglevel = "DEBUG"
+        |  log-dead-letters-during-shutdown = false
         |  actor {
         |    provider = cluster
         |

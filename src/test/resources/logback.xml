@@ -68,6 +68,7 @@
     <logger name="play.filters.csrf" level="DEBUG"/>
 
     <logger name="akka" level="INFO" />
+    <logger name="org.jboss.netty" level="ERROR" />
 
 
     <root level="DEBUG">
