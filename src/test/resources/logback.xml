@@ -67,7 +67,7 @@
 
     <logger name="play.filters.csrf" level="DEBUG"/>
 
-    <logger name="akka" level="WARN" />
+    <logger name="akka" level="INFO" />
     <logger name="akka.remote.EndpointWriter" level="ERROR" />
     <logger name="org.jboss.netty" level="ERROR" />
 

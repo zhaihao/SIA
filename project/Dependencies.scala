@@ -33,8 +33,9 @@ object Dependencies extends AutoPlugin {
     lazy val nscala    = "com.github.nscala-time" %% "nscala-time"   % "2.22.0"
 
     // java
-    lazy val sqlite = "org.xerial" % "sqlite-jdbc"          % "3.25.2"
-    lazy val mysql  = "mysql"      % "mysql-connector-java" % "8.0.16"
+    lazy val sqlite  = "org.xerial"       % "sqlite-jdbc"          % "3.25.2"
+    lazy val mysql   = "mysql"            % "mysql-connector-java" % "8.0.16"
+    lazy val leveldb = "org.iq80.leveldb" % "leveldb"              % "0.7"
 
     lazy val java_mail = Seq(
       "javax.mail"   % "javax.mail-api" % "1.6.2",
@@ -53,8 +54,9 @@ object Dependencies extends AutoPlugin {
       "com.typesafe.akka" %% "akka-remote"             % akka_version,
       "com.typesafe.akka" %% "akka-http"               % "10.1.9",
       "com.typesafe.akka" %% "akka-cluster"            % akka_version,
-      "com.typesafe.akka" %% "akka-persistence"        % akka_version,
+      "com.typesafe.akka" %% "akka-cluster-tools"      % akka_version,
       "com.typesafe.akka" %% "akka-cluster-metrics"    % akka_version,
+      "com.typesafe.akka" %% "akka-persistence"        % akka_version,
       "com.typesafe.akka" %% "akka-testkit"            % akka_version % Test,
       "com.typesafe.akka" %% "akka-multi-node-testkit" % akka_version % Test
     )

@@ -9,14 +9,24 @@ package sia.akka.cluster.cluster_singleton
 
 import akka.actor.{PoisonPill, Props}
 import akka.cluster.Cluster
-import akka.persistence.journal.leveldb.SharedLeveldbStore
+import akka.cluster.singleton.{
+  ClusterSingletonManager,
+  ClusterSingletonManagerSettings,
+  ClusterSingletonProxy,
+  ClusterSingletonProxySettings
+}
+import akka.persistence.journal.leveldb.{SharedLeveldbJournal, SharedLeveldbStore}
 import akka.persistence.{PersistentActor, SnapshotOffer}
 import akka.remote.testkit.{MultiNodeConfig, MultiNodeSpec}
 import akka.testkit.ImplicitSender
+import akka.util.Timeout
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.StrictLogging
 import org.jboss.netty.logging.{InternalLoggerFactory, Slf4JLoggerFactory}
 import sia.akka.STMultiNodeSpec
+
+import scala.concurrent.Await
+import scala.concurrent.duration._
 
 /**
   * ClusterSingletonSpec
@@ -33,19 +43,49 @@ class ClusterSingletonSpec
 
   override def initialParticipants = roles.size
   import ClusterSingletonSpec._
+  implicit val timeout = Timeout(15.seconds)
 
   "test" in {
     val cluster = Cluster(system)
     cluster.join(node(node1).address) // 手动设置 seed
-    enterBarrier("up")
+    enterBarrier("集群上线")
 
-    runOn(node1){
-      system.actorOf(Props[SharedLeveldbStore],"store")
+    runOn(node1) {
+      val store = system.actorOf(Props[SharedLeveldbStore], "store")
+      SharedLeveldbJournal.setStore(store, system)
+      enterBarrier("等待启动 store")
+      enterBarrier("store 已启动")
     }
 
-    runOn((nodes - node1):_*){
+    runOn(nodes.filter(_ != node1): _*) {
+      enterBarrier("等待启动 store")
 
+      val ref = Await.result(system.actorSelection(node(node1) / "user" / "store").resolveOne(),
+                             timeout.duration)
+
+      SharedLeveldbJournal.setStore(ref, system)
+      enterBarrier("store 已启动")
     }
+
+    system.actorOf(
+      ClusterSingletonManager
+        .props(Props[SingletonActor], CleanUp, ClusterSingletonManagerSettings(system)),
+      "singletonManager")
+
+    enterBarrier("singletonManager 已启动")
+
+    val proxy = system.actorOf(
+      ClusterSingletonProxy.props("/user/singletonManager", ClusterSingletonProxySettings(system)))
+
+    Thread.sleep(1000)
+
+    enterBarrier("proxy 已启动")
+    import system.dispatcher
+    system.scheduler.schedule(0.seconds, 3.second, proxy, Dig)
+    system.scheduler.schedule(1.seconds, 2.second, proxy, Plant)
+    system.scheduler.schedule(10.seconds, 15.seconds, proxy, Disconnect)
+
+    Thread.sleep(60 * 1000)
   }
 
 }
@@ -79,6 +119,7 @@ object ClusterSingletonSpec extends MultiNodeConfig {
         |  log-dead-letters = 0
         |  actor {
         |    provider = cluster
+        |    warn-about-java-serializer-usage = false
         |  }
         |
         |  remote {
@@ -93,7 +134,7 @@ object ClusterSingletonSpec extends MultiNodeConfig {
         |    journal{
         |      plugin = "akka.persistence.journal.leveldb-shared"
         |      leveldb-shared.store {
-        |        native = off
+        |        native = false
         |        dir = "target/shared-journal"
         |      }
         |    }

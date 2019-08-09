@@ -25,7 +25,7 @@ lazy val root = (project in file("."))
     name                := "SIA",
     logBuffered in Test := false,
     libraryDependencies ++= Seq(spark, slick, java_mail, akka).flatten,
-    libraryDependencies ++= Seq(os_lib, mysql, nscala, sqlite),
+    libraryDependencies ++= Seq(os_lib, mysql, nscala, sqlite, leveldb),
     scalacOptions in (Compile, doc) ++= Seq(
       "-implicits",
       "-groups",
