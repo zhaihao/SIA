@@ -28,7 +28,7 @@
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
 <!--            <pattern>%-120(%date{HH:mm:ss.SSS} %-7(%coloredLevel) %logger [%X{akkaSource}]) - %message%n%xException{10} </pattern>-->
-            <pattern>%-90(%date{HH:mm:ss.SSS} %-7(%coloredLevel) %logger{40}(%line\)) - %message%n%xException{10} </pattern>
+            <pattern>%-70(%date{HH:mm:ss.SSS} %-7(%coloredLevel) %logger{30}(%line\)) - %message%n%xException{10} </pattern>
         </encoder>
     </appender>
 

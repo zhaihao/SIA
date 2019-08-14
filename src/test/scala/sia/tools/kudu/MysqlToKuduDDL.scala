@@ -5,12 +5,13 @@
  * Please visit http://ooon.me or mail to zhaihao@ooon.me
  */
 
-package sia.tools
+package sia.tools.kudu
 
 import java.sql.{DriverManager, ResultSet}
 
 import com.github.nscala_time.time.Imports._
 import com.typesafe.scalalogging.StrictLogging
+import sia.tools.pwd
 import test.BaseSpec
 
 import scala.collection.mutable.ArrayBuffer
@@ -26,7 +27,7 @@ class MysqlToKuduDDL extends BaseSpec with StrictLogging {
 
   val url        = "jdbc:mysql://172.18.20.82:3306/base-user?characterEncoding=utf-8&useSSL=false"
   val user       = "datax"
-  val password   = "XN4dataX@2017"
+  val password   = pwd("172.18.20.82:3306/base-user", user)
   val db         = "base-user"
   val table      = "user_info_ext"
   val primaryKey = Array("id", "gmt_create")

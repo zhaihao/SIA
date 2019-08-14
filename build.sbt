@@ -1,7 +1,7 @@
 import sbt.Keys.scalacOptions
 import com.typesafe.sbt.SbtMultiJvm.multiJvmSettings
 // global
-scalaVersion in Global := "2.12.8"
+scalaVersion in Global := "2.12.9"
 organization in Global := "me.ooon"
 
 scalacOptions in Global ++= Seq("-unchecked", "-deprecation", "-feature")
@@ -25,7 +25,7 @@ lazy val root = (project in file("."))
     name                := "SIA",
     logBuffered in Test := false,
     libraryDependencies ++= Seq(spark, slick, java_mail, akka).flatten,
-    libraryDependencies ++= Seq(os_lib, mysql, nscala, sqlite, leveldb),
+    libraryDependencies ++= Seq(os_lib, mysql, nscala, sqlite, leveldb, requests, play_json),
     scalacOptions in (Compile, doc) ++= Seq(
       "-implicits",
       "-groups",
@@ -51,14 +51,11 @@ lazy val docs = (project in file("docs"))
     ParadoxMaterialThemePlugin.paradoxMaterialThemeSettings(Paradox),
     previewLaunchBrowser := false,
     previewFixedPort     := Some(9000),
-    previewFixedIp       := Some("0.0.0.0"),
+//    previewFixedIp       := Some("0.0.0.0"),
     ghpagesNoJekyll      := true,
     git.remoteRepo       := "git@github.com:zhaihao/SIA.git",
-    excludeFilter in ghpagesCleanSite := new FileFilter {
-
-      def accept(f: File) =
-        (ghpagesRepository.value / "CNAME").getCanonicalPath == f.getCanonicalPath
-    },
+    excludeFilter in ghpagesCleanSite := ((f: File) =>
+      (ghpagesRepository.value / "CNAME").getCanonicalPath == f.getCanonicalPath),
     sourceDirectory in Paradox := sourceDirectory.value / "main" / "paradox",
     paradoxProperties in Paradox ++= Map(
       "scaladoc.base_url"   -> "http://SIA.ooon.me/api/",
