@@ -56,6 +56,7 @@ object Dependencies extends AutoPlugin {
       "com.typesafe.akka" %% "akka-cluster"            % akka_version,
       "com.typesafe.akka" %% "akka-cluster-tools"      % akka_version,
       "com.typesafe.akka" %% "akka-cluster-metrics"    % akka_version,
+      "com.typesafe.akka" %% "akka-cluster-sharding"   % akka_version,
       "com.typesafe.akka" %% "akka-persistence"        % akka_version,
       "com.typesafe.akka" %% "akka-testkit"            % akka_version % Test,
       "com.typesafe.akka" %% "akka-multi-node-testkit" % akka_version % Test
