@@ -21,7 +21,7 @@ object Dependencies extends AutoPlugin {
 
   object autoImport {
     // scala
-    lazy val orison    = "me.ooon"                %% "orison"        % "0.0.21"
+    lazy val orison    = "me.ooon"                %% "orison"        % "0.0.22"
     lazy val scalatest = "org.scalatest"          %% "scalatest"     % "3.0.7" % Test
     lazy val os_lib    = "com.lihaoyi"            %% "os-lib"        % "0.2.8"
     lazy val requests  = "com.lihaoyi"            %% "requests"      % "0.1.7"
