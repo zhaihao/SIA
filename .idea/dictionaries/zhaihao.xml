@@ -5,6 +5,7 @@
       <w>backoff</w>
       <w>datax</w>
       <w>datediff</w>
+      <w>fset</w>
       <w>hikaricp</w>
       <w>hocon</w>
       <w>jdbc</w>
