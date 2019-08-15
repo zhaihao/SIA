@@ -19,8 +19,6 @@ import org.apache.spark.sql.types.StructType
   */
 class HigherOrderFunctionSpec extends SparkSpec {
   "test" in {
-    import spark.implicits._
-
     val rdd = spark.sparkContext.parallelize(
       Seq(
         User2(1, Array(1, 2, 3), Array(2, 3, 4)),
