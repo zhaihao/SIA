@@ -52,8 +52,8 @@ lazy val docs = (project in file("docs"))
     previewLaunchBrowser := false,
     previewFixedPort     := Some(9000),
 //    previewFixedIp       := Some("0.0.0.0"),
-    ghpagesNoJekyll      := true,
-    git.remoteRepo       := "git@github.com:zhaihao/SIA.git",
+    ghpagesNoJekyll := true,
+    git.remoteRepo  := "git@github.com:zhaihao/SIA.git",
     excludeFilter in ghpagesCleanSite := ((f: File) =>
       (ghpagesRepository.value / "CNAME").getCanonicalPath == f.getCanonicalPath),
     sourceDirectory in Paradox := sourceDirectory.value / "main" / "paradox",
@@ -93,4 +93,12 @@ lazy val messages = (project in file("messages"))
     PB.targets in Compile := Seq(
       scalapb.gen() -> sourceDirectory.value / "main" / "scala"
     )
+  )
+
+lazy val bench = (project in file("bench"))
+  .enablePlugins(JmhPlugin)
+  .settings(
+    moduleName          := "bench",
+    name                := "SIA - bench",
+    logBuffered in Test := false
   )
