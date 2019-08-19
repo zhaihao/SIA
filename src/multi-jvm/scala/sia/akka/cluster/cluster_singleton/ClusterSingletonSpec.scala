@@ -22,7 +22,6 @@ import akka.testkit.ImplicitSender
 import akka.util.Timeout
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.StrictLogging
-import org.jboss.netty.logging.{InternalLoggerFactory, Slf4JLoggerFactory}
 import sia.akka.STMultiNodeSpec
 
 import scala.concurrent.Await
@@ -65,6 +64,7 @@ class ClusterSingletonSpec
 
       SharedLeveldbJournal.setStore(ref, system)
       enterBarrier("store 已启动")
+
     }
 
     system.actorOf(
@@ -93,9 +93,6 @@ class ClusterSingletonSpec
 object ClusterSingletonSpec extends MultiNodeConfig {
   val nodes @ Seq(node1, node2, node3, node4, node5) = (1 to 5).map(i => role(s"node$i"))
 
-  // Fix to avoid 'java.util.concurrent.RejectedExecutionException: Worker has already been shutdown'
-  InternalLoggerFactory.setDefaultFactory(new Slf4JLoggerFactory)
-
   nodes.foreach { node =>
     val i    = node.name.last.toString.toInt
     val port = 25500 + i
@@ -103,8 +100,8 @@ object ClusterSingletonSpec extends MultiNodeConfig {
       ConfigFactory.parseString(
         //language=HOCON
         s"""
-           |akka.remote.netty.tcp.host = "127.0.0.1"
-           |akka.remote.netty.tcp.port = "$port"
+           |akka.remote.artery.canonical.hostname = "127.0.0.1"
+           |akka.remote.artery.canonical.port = "$port"
            |""".stripMargin))
   }
 
@@ -123,8 +120,10 @@ object ClusterSingletonSpec extends MultiNodeConfig {
         |  }
         |
         |  remote {
-        |    enabled-transports = [akka.remote.netty.tcp]
-        |    use-passive-connections = off
+        |    artery {
+        |      enabled = on
+        |      transport = tcp
+        |    }
         |  }
         |
         |  cluster {

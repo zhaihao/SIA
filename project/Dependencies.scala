@@ -17,7 +17,7 @@ object Dependencies extends AutoPlugin {
   override def requires = empty
   override def trigger  = allRequirements
 
-  val spark_version = "2.4.1"
+  val spark_version = "2.4.3"
 
   object autoImport {
     // scala
@@ -31,6 +31,7 @@ object Dependencies extends AutoPlugin {
     lazy val squants   = "org.typelevel"          %% "squants"       % "1.4.0"
     lazy val scraper   = "net.ruippeixotog"       %% "scala-scraper" % "2.1.0"
     lazy val nscala    = "com.github.nscala-time" %% "nscala-time"   % "2.22.0"
+    lazy val delta     = "io.delta"               %% "delta-core"    % "0.3.0"
 
     // java
     lazy val sqlite  = "org.xerial"       % "sqlite-jdbc"          % "3.25.2"
@@ -49,17 +50,19 @@ object Dependencies extends AutoPlugin {
 
     lazy val akka_version = "2.5.23"
     lazy val akka = Seq(
-      "com.typesafe.akka" %% "akka-actor"              % akka_version,
-      "com.typesafe.akka" %% "akka-slf4j"              % akka_version,
-      "com.typesafe.akka" %% "akka-remote"             % akka_version,
-      "com.typesafe.akka" %% "akka-http"               % "10.1.9",
-      "com.typesafe.akka" %% "akka-cluster"            % akka_version,
-      "com.typesafe.akka" %% "akka-cluster-tools"      % akka_version,
-      "com.typesafe.akka" %% "akka-cluster-metrics"    % akka_version,
-      "com.typesafe.akka" %% "akka-cluster-sharding"   % akka_version,
-      "com.typesafe.akka" %% "akka-persistence"        % akka_version,
-      "com.typesafe.akka" %% "akka-testkit"            % akka_version % Test,
-      "com.typesafe.akka" %% "akka-multi-node-testkit" % akka_version % Test
+      "com.typesafe.akka" %% "akka-actor"                          % akka_version,
+      "com.typesafe.akka" %% "akka-slf4j"                          % akka_version,
+      "com.typesafe.akka" %% "akka-remote"                         % akka_version,
+      "com.typesafe.akka" %% "akka-http"                           % "10.1.9",
+      "com.typesafe.akka" %% "akka-cluster"                        % akka_version,
+      "com.typesafe.akka" %% "akka-cluster-tools"                  % akka_version,
+      "com.typesafe.akka" %% "akka-cluster-metrics"                % akka_version,
+      "com.typesafe.akka" %% "akka-cluster-sharding"               % akka_version,
+      "com.typesafe.akka" %% "akka-persistence"                    % akka_version,
+      "com.typesafe.akka" %% "akka-persistence-cassandra"          % "0.99",
+      "com.typesafe.akka" %% "akka-persistence-cassandra-launcher" % "0.99" % Test,
+      "com.typesafe.akka" %% "akka-testkit"                        % akka_version % Test,
+      "com.typesafe.akka" %% "akka-multi-node-testkit"             % akka_version % Test
     )
 
     lazy val chill = Seq(
@@ -98,10 +101,22 @@ object Dependencies extends AutoPlugin {
     )
 
     val excludes = Seq(
-      ExclusionRule("org.slf4j", "slf4j-log4j12")
+      ExclusionRule("org.slf4j", "slf4j-log4j12"),
+      ExclusionRule("io.netty", "netty"),
+      ExclusionRule("io.netty", "netty-buffer"),
+      ExclusionRule("io.netty", "netty-codec"),
+      ExclusionRule("io.netty", "netty-common"),
+      ExclusionRule("io.netty", "netty-handler"),
+      ExclusionRule("io.netty", "netty-transport")
     )
 
-    val overrides = Seq()
+    val overrides = Seq(
+      "io.netty"                     % "netty-all"                % "4.1.17.Final",
+      "com.fasterxml.jackson.core"   % "jackson-core"             % "2.9.8",
+      "com.fasterxml.jackson.core"   % "jackson-databind"         % "2.9.8",
+      "com.fasterxml.jackson.module" %% "jackson-module-scala"    % "2.9.8",
+      "com.fasterxml.jackson.module" % "jackson-module-paranamer" % "2.9.8"
+    )
   }
 
 }

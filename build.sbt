@@ -25,7 +25,7 @@ lazy val root = (project in file("."))
     name                := "SIA",
     logBuffered in Test := false,
     libraryDependencies ++= Seq(spark, slick, java_mail, akka).flatten,
-    libraryDependencies ++= Seq(os_lib, mysql, nscala, sqlite, leveldb, requests, play_json),
+    libraryDependencies ++= Seq(os_lib, mysql, nscala, sqlite, leveldb, requests, play_json, delta),
     scalacOptions in (Compile, doc) ++= Seq(
       "-implicits",
       "-groups",
@@ -86,7 +86,7 @@ lazy val docs = (project in file("docs"))
 lazy val messages = (project in file("messages"))
   .settings(
     moduleName                 := "messages",
-    name                       := "SIA - messages",
+    name                       := "SIA - Messages",
     logBuffered in Test        := false,
     libraryDependencies        += "com.thesamet.scalapb" %% "scalapb-runtime" % scalapb.compiler.Version.scalapbVersion % "protobuf",
     PB.protoSources in Compile := Seq(sourceDirectory.value / "main" / "protobuf"),
@@ -99,6 +99,6 @@ lazy val bench = (project in file("bench"))
   .enablePlugins(JmhPlugin)
   .settings(
     moduleName          := "bench",
-    name                := "SIA - bench",
+    name                := "SIA - Bench",
     logBuffered in Test := false
   )

@@ -14,7 +14,6 @@ import akka.remote.testkit.{MultiNodeConfig, MultiNodeSpec}
 import akka.testkit.ImplicitSender
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.StrictLogging
-import org.jboss.netty.logging.{InternalLoggerFactory, Slf4JLoggerFactory}
 import sia.akka.STMultiNodeSpec
 
 /**
@@ -52,9 +51,6 @@ object NodeStateSpec extends MultiNodeConfig {
 
   val nodes = Seq(node1, node2, node3)
 
-  // Fix to avoid 'java.util.concurrent.RejectedExecutionException: Worker has already been shutdown'
-  InternalLoggerFactory.setDefaultFactory(new Slf4JLoggerFactory)
-
   nodes.foreach { node =>
     nodeConfig(node)(
       ConfigFactory.parseString(
@@ -78,13 +74,15 @@ object NodeStateSpec extends MultiNodeConfig {
         |  loggers = ["akka.event.slf4j.Slf4jLogger"]
         |  loglevel = "DEBUG"
         |  log-dead-letters-during-shutdown = false
-        |  log-dead-letters = false
         |  actor {
         |    provider = cluster
         |  }
         |
         |  remote {
-        |    enabled-transports = [akka.remote.netty.tcp]
+        |    artery {
+        |      enabled = on
+        |      transport = tcp
+        |    }
         |  }
         |
         |  cluster {
