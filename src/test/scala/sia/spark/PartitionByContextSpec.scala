@@ -7,9 +7,7 @@
 
 package sia.spark
 
-import com.typesafe.scalalogging.{Logger, StrictLogging}
-import org.apache.spark.TaskContext
-import org.apache.spark.sql.Row
+import com.typesafe.scalalogging.StrictLogging
 import test.BaseSpec
 
 /**
@@ -23,9 +21,8 @@ import test.BaseSpec
   */
 class PartitionByContextSpec extends BaseSpec with SparkSpec with StrictLogging {
 
-  import spark.implicits._
   import org.apache.spark.sql.functions._
-  val output = os.pwd / 'output / 'spark
+  import spark.implicits._
 
   "Dataset API" in {
     val df = Seq(
@@ -44,7 +41,6 @@ class PartitionByContextSpec extends BaseSpec with SparkSpec with StrictLogging 
       s.dropRight(a)
     }
 
-    os.remove.all(output)
     df.repartition(3, dropRight($"city", lit(1))).write.format("csv").save(output.toString())
   }
 }

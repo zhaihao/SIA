@@ -20,9 +20,7 @@ import org.apache.spark.sql.SaveMode
 class OverwriteParquetPartitionSpec extends SparkSpec with StrictLogging{
   "test" in {
     import spark.implicits._
-    val output = os.pwd / 'output / 'spark
     val table  = "t_user"
-    os.remove.all(output)
     val df1 = Seq(
       (1, 2016),
       (2, 2016),
