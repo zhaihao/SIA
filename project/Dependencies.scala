@@ -21,17 +21,18 @@ object Dependencies extends AutoPlugin {
 
   object autoImport {
     // scala
-    lazy val orison    = "me.ooon"                %% "orison"        % "0.0.22"
-    lazy val scalatest = "org.scalatest"          %% "scalatest"     % "3.0.7" % Test
-    lazy val os_lib    = "com.lihaoyi"            %% "os-lib"        % "0.2.8"
-    lazy val requests  = "com.lihaoyi"            %% "requests"      % "0.1.7"
-    lazy val play_json = "com.typesafe.play"      %% "play-json"     % "2.7.2"
-    lazy val scalaz    = "org.scalaz"             %% "scalaz-core"   % "7.2.27"
-    lazy val vegas     = "org.vegas-viz"          %% "vegas"         % "0.3.12-om"
-    lazy val squants   = "org.typelevel"          %% "squants"       % "1.4.0"
-    lazy val scraper   = "net.ruippeixotog"       %% "scala-scraper" % "2.1.0"
-    lazy val nscala    = "com.github.nscala-time" %% "nscala-time"   % "2.22.0"
-    lazy val delta     = "io.delta"               %% "delta-core"    % "0.3.0"
+    lazy val orison    = "me.ooon"                %% "orison"         % "0.0.23"
+    lazy val scalatest = "org.scalatest"          %% "scalatest"      % "3.0.7" % Test
+    lazy val os_lib    = "com.lihaoyi"            %% "os-lib"         % "0.2.8"
+    lazy val requests  = "com.lihaoyi"            %% "requests"       % "0.1.7"
+    lazy val play_json = "com.typesafe.play"      %% "play-json"      % "2.7.2"
+    lazy val scalaz    = "org.scalaz"             %% "scalaz-core"    % "7.2.27"
+    lazy val vegas     = "org.vegas-viz"          %% "vegas"          % "0.3.12-om"
+    lazy val squants   = "org.typelevel"          %% "squants"        % "1.4.0"
+    lazy val scraper   = "net.ruippeixotog"       %% "scala-scraper"  % "2.1.0"
+    lazy val nscala    = "com.github.nscala-time" %% "nscala-time"    % "2.22.0"
+    lazy val delta     = "io.delta"               %% "delta-core"     % "0.3.0"
+    lazy val json4s    = "org.json4s"             %% "json4s-jackson" % "3.6.7"
 
     // java
     lazy val sqlite  = "org.xerial"       % "sqlite-jdbc"          % "3.25.2"
@@ -50,19 +51,20 @@ object Dependencies extends AutoPlugin {
 
     lazy val akka_version = "2.5.23"
     lazy val akka = Seq(
-      "com.typesafe.akka" %% "akka-actor"                          % akka_version,
-      "com.typesafe.akka" %% "akka-slf4j"                          % akka_version,
-      "com.typesafe.akka" %% "akka-remote"                         % akka_version,
-      "com.typesafe.akka" %% "akka-http"                           % "10.1.9",
-      "com.typesafe.akka" %% "akka-cluster"                        % akka_version,
-      "com.typesafe.akka" %% "akka-cluster-tools"                  % akka_version,
-      "com.typesafe.akka" %% "akka-cluster-metrics"                % akka_version,
-      "com.typesafe.akka" %% "akka-cluster-sharding"               % akka_version,
-      "com.typesafe.akka" %% "akka-persistence"                    % akka_version,
-      "com.typesafe.akka" %% "akka-persistence-cassandra"          % "0.99",
-      "com.typesafe.akka" %% "akka-persistence-cassandra-launcher" % "0.99" % Test,
-      "com.typesafe.akka" %% "akka-testkit"                        % akka_version % Test,
-      "com.typesafe.akka" %% "akka-multi-node-testkit"             % akka_version % Test
+      "com.typesafe.akka"             %% "akka-actor"                          % akka_version,
+      "com.typesafe.akka"             %% "akka-slf4j"                          % akka_version,
+      "com.typesafe.akka"             %% "akka-remote"                         % akka_version,
+      "com.typesafe.akka"             %% "akka-http"                           % "10.1.9",
+      "com.typesafe.akka"             %% "akka-cluster"                        % akka_version,
+      "com.typesafe.akka"             %% "akka-cluster-tools"                  % akka_version,
+      "com.typesafe.akka"             %% "akka-cluster-metrics"                % akka_version,
+      "com.typesafe.akka"             %% "akka-cluster-sharding"               % akka_version,
+      "com.typesafe.akka"             %% "akka-persistence"                    % akka_version,
+      "com.typesafe.akka"             %% "akka-persistence-cassandra"          % "0.99",
+      "com.typesafe.akka"             %% "akka-persistence-cassandra-launcher" % "0.99" % Test,
+      "com.typesafe.akka"             %% "akka-testkit"                        % akka_version % Test,
+      "com.typesafe.akka"             %% "akka-multi-node-testkit"             % akka_version % Test,
+      "com.lightbend.akka.management" %% "akka-management-cluster-bootstrap"   % "1.0.3"
     )
 
     lazy val chill = Seq(

@@ -27,8 +27,9 @@
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-<!--            <pattern>%-120(%date{HH:mm:ss.SSS} %-7(%coloredLevel) %logger [%X{akkaSource}]) - %message%n%xException{10} </pattern>-->
-            <pattern>%-70(%date{HH:mm:ss.SSS} %-7(%coloredLevel) %logger{30}(%line\)) - %message%n%xException{10} </pattern>
+            <!--            <pattern>%-120(%date{HH:mm:ss.SSS} %-7(%coloredLevel) %logger [%X{akkaSource}]) - %message%n%xException{10} </pattern>-->
+            <pattern>%-70(%date{HH:mm:ss.SSS} %-7(%coloredLevel) %logger{30}(%line\)) - %message%n%xException{10}
+            </pattern>
         </encoder>
     </appender>
 
@@ -51,6 +52,7 @@
     <logger name="org.apache.spark.ui.SparkUI" level="INFO"/>
 
     <logger name="org.apache.hadoop" level="INFO"/>
+    <logger name="org.apache.hadoop.io.compress.CodecPool" level="warn"/>
 
     <logger name="play" level="INFO"/>
     <logger name="application" level="DEBUG"/>
@@ -59,7 +61,7 @@
 
 
     <logger name="slick" level="INFO"/>
-    <logger name="slick.jdbc.JdbcBackend.statement" level="DEBUG" />
+    <logger name="slick.jdbc.JdbcBackend.statement" level="DEBUG"/>
 
     <logger name="slick.jdbc.JdbcBackend.parameter" level="DEBUG"/>
     <logger name="slick.jdbc.JdbcBackend.benchmark" level="DEBUG"/>
@@ -67,12 +69,13 @@
 
     <logger name="play.filters.csrf" level="DEBUG"/>
 
-    <logger name="akka" level="INFO" />
-    <logger name="akka.remote.EndpointWriter" level="ERROR" />
-    <logger name="org.jboss.netty" level="ERROR" />
+    <logger name="akka" level="INFO"/>
+    <logger name="akka.remote.EndpointWriter" level="ERROR"/>
+    <logger name="org.jboss.netty" level="ERROR"/>
 
+    <logger name="sia" level="TRACE"/>
 
-    <root level="TRACE">
+    <root level="INFO">
         <appender-ref ref="STDOUT"/>
     </root>
 
