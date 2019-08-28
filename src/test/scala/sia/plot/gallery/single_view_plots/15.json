@@ -1,0 +1,76 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": null,
+  "mark": {
+    "type": "bar",
+    "tooltip": true
+  },
+  "description": "A diverging stacked bar chart for sentiments towards a set of eight questions, displayed as percentages with neutral responses straddling the 0% mark",
+  "transform": [
+    {
+      "calculate": "if(datum.type === 'Strongly disagree',-2,0) + if(datum.type==='Disagree',-1,0) + if(datum.type =='Neither agree nor disagree',0,0) + if(datum.type ==='Agree',1,0) + if(datum.type ==='Strongly agree',2,0)",
+      "as": "q_order"
+    }, {
+      "calculate": "if(datum.type === 'Disagree' || datum.type === 'Strongly disagree', datum.percentage,0) + if(datum.type === 'Neither agree nor disagree', datum.percentage / 2,0)",
+      "as": "signed_percentage"
+    },
+    {
+      "stack": "percentage",
+      "as": ["v1", "v2"],
+      "groupby": ["question"]
+    },
+    {
+      "joinaggregate": [
+        {
+          "field": "signed_percentage",
+          "op": "sum",
+          "as": "offset"
+        }
+      ],
+      "groupby": ["question"]
+    },
+    {
+      "calculate": "datum.v1 - datum.offset",
+      "as": "nx"
+    },
+    {
+      "calculate": "datum.v2 - datum.offset",
+      "as": "nx2"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "nx",
+      "type": "quantitative",
+      "axis": {
+        "title": "Percentage"
+      }
+    },
+    "x2": {
+      "field": "nx2"
+    },
+    "y": {
+      "field": "question",
+      "type": "nominal",
+      "axis": {
+        "title": "Question",
+        "offset": 5,
+        "ticks": false,
+        "minExtent": 60,
+        "domain": false
+      }
+    },
+    "color": {
+      "field": "type",
+      "type": "nominal",
+      "legend": {
+        "title": "Response"
+      },
+      "scale": {
+        "domain": ["Strongly disagree", "Disagree", "Neither agree nor disagree", "Agree", "Strongly agree"],
+        "range": ["#c30d24", "#f3a583", "#cccccc", "#94c6da", "#1770ab"],
+        "type": "ordinal"
+      }
+    }
+  }
+}

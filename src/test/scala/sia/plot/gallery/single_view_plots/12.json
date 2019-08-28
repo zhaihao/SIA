@@ -1,0 +1,24 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": null,
+  "mark": {
+    "type": "bar",
+    "tooltip": true
+  },
+  "description": "A bar chart that directly encodes color names in the data.",
+  "encoding": {
+    "x": {
+      "field": "color",
+      "type": "nominal"
+    },
+    "y": {
+      "field": "b",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "color",
+      "type": "nominal",
+      "scale": null
+    }
+  }
+}

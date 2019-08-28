@@ -1,0 +1,22 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": null,
+  "mark": {
+    "type": "bar",
+    "tooltip": true
+  },
+  "description": "A simple bar chart with ranged data (aka Gantt Chart).",
+  "encoding": {
+    "y": {
+      "field": "task",
+      "type": "ordinal"
+    },
+    "x": {
+      "field": "start",
+      "type": "quantitative"
+    },
+    "x2": {
+      "field": "end"
+    }
+  }
+}

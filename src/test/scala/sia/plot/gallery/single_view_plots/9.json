@@ -1,0 +1,23 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": null,
+  "mark": {
+    "type": "bar",
+    "tooltip": true
+  },
+  "encoding": {
+    "x": {
+      "aggregate": "sum",
+      "field": "yield",
+      "type": "quantitative"
+    },
+    "y": {
+      "field": "variety",
+      "type": "nominal"
+    },
+    "color": {
+      "field": "site",
+      "type": "nominal"
+    }
+  }
+}

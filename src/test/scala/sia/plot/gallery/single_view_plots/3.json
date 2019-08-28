@@ -1,0 +1,32 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": null,
+  "description": "A bar chart that sorts the y-values by the x-values.",
+  "height": {
+    "step": 17
+  },
+  "transform": [
+    {
+      "filter": "datum.year == 2000"
+    }
+  ],
+  "mark": {
+    "type": "bar",
+    "tooltip": true
+  },
+  "encoding": {
+    "x": {
+      "aggregate": "sum",
+      "field": "people",
+      "type": "quantitative",
+      "axis": {
+        "title": "population"
+      }
+    },
+    "y": {
+      "field": "age",
+      "type": "ordinal",
+      "sort": "-x"
+    }
+  }
+}

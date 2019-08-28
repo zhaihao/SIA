@@ -1,0 +1,25 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": null,
+  "mark": {
+    "type": "bar",
+    "tooltip": true
+  },
+  "encoding": {
+    "x": {
+      "field": "bin_start",
+      "type": "quantitative",
+      "bin": {
+        "binned": true,
+        "step": 2
+      }
+    },
+    "x2": {
+      "field": "bin_end"
+    },
+    "y": {
+      "field": "count",
+      "type": "quantitative"
+    }
+  }
+}
