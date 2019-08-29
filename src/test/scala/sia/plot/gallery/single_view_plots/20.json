@@ -1,0 +1,31 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": null,
+  "width": 300,
+  "height": 300,
+  "mark": {
+    "type": "point",
+    "tooltip": true
+  },
+  "encoding": {
+    "x": {
+      "field": "Horsepower",
+      "type": "quantitative"
+    },
+    "y": {
+      "field": "Miles_per_Gallon",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "Origin",
+      "type": "nominal",
+      "scale": {
+        "range": ["rgb(76, 120, 168)","rgb(245, 133, 24)","rgb(228, 87, 86)"]
+      }
+    },
+    "shape": {
+      "field": "Origin",
+      "type": "nominal"
+    }
+  }
+}

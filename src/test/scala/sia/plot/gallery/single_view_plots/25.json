@@ -1,0 +1,26 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": null,
+  "width": 400,
+  "height": 400,
+  "selection": {
+    "view": {"type": "interval", "bind": "scales"}
+  },
+  "mark": "circle",
+  "encoding": {
+    "y": {
+      "field": "health",
+      "type": "quantitative",
+      "scale": {"zero": false},
+      "axis": {"minExtent": 30}
+    },
+    "x": {
+      "field": "income",
+      "type": "quantitative",
+      "scale": {"type": "log"}
+    },
+    "size": {"field": "population", "type": "quantitative"},
+    "color": {"value": "#000"}
+  }
+
+}

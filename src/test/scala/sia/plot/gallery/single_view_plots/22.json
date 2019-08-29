@@ -1,0 +1,28 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": null,
+  "width": 500,
+  "height": 500,
+  "mark": {
+    "type": "point",
+    "tooltip": true
+  },
+  "encoding": {
+    "x": {
+      "field": "Horsepower",
+      "type": "quantitative"
+    },
+    "y": {
+      "field": "Miles_per_Gallon",
+      "type": "quantitative"
+    },
+    "size": {
+      "legend": {
+        "type": "symbol",
+        "symbolType": "circle"
+      },
+      "field": "Acceleration",
+      "type": "quantitative"
+    }
+  }
+}

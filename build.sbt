@@ -32,7 +32,6 @@ lazy val root = (project in file("."))
                                 leveldb,
                                 requests,
                                 play_json,
-                                json4s,
                                 delta),
     scalacOptions in (Compile, doc) ++= Seq(
       "-implicits",

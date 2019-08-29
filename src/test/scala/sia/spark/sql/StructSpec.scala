@@ -34,8 +34,14 @@ class StructSpec extends SparkSpec {
                           |  struct(name,age,1 as l) as j
                           |from t_user
                           |""".stripMargin)
-    
+
     res.show()
     res.printSchema()
+  }
+
+  "named struct" in {
+    val df = spark.sql("select named_struct('a',1)")
+    df.show()
+    df.printSchema()
   }
 }

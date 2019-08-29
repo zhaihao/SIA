@@ -1,0 +1,29 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": null,
+  "mark": {
+    "type": "point",
+    "tooltip": true
+  },
+  "encoding": {
+    "x": {
+      "field": "IMDB_Rating",
+      "type": "quantitative"
+    },
+    "y": {
+      "field": "Rotten_Tomatoes_Rating",
+      "type": "quantitative"
+    },
+    "color": {
+      "condition": {
+        "test": "datum.IMDB_Rating === null || datum.Rotten_Tomatoes_Rating === null",
+        "value": "#aaa"
+      }
+    }
+  },
+  "config": {
+    "mark": {
+      "invalid": null
+    }
+  }
+}

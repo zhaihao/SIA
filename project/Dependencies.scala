@@ -32,7 +32,6 @@ object Dependencies extends AutoPlugin {
     lazy val scraper   = "net.ruippeixotog"       %% "scala-scraper"  % "2.1.0"
     lazy val nscala    = "com.github.nscala-time" %% "nscala-time"    % "2.22.0"
     lazy val delta     = "io.delta"               %% "delta-core"     % "0.3.0"
-    lazy val json4s    = "org.json4s"             %% "json4s-jackson" % "3.6.7"
 
     // java
     lazy val sqlite  = "org.xerial"       % "sqlite-jdbc"          % "3.25.2"
