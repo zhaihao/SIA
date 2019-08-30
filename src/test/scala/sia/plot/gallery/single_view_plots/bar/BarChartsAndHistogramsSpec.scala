@@ -5,7 +5,7 @@
  * Please visit http://ooon.me or mail to zhaihao@ooon.me
  */
 
-package sia.plot.gallery.single_view_plots
+package sia.plot.gallery.single_view_plots.bar
 
 import os.RelPath
 import sia.plot.gallery.Dataset
@@ -33,7 +33,7 @@ class BarChartsAndHistogramsSpec extends BaseSpec {
         Map("a" -> "H", "b" -> 87),
         Map("a" -> "I", "b" -> 52)
       ))
-      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/1.json"))
+      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/bar/1.json"))
       .html
       .browse()
   }
@@ -41,7 +41,7 @@ class BarChartsAndHistogramsSpec extends BaseSpec {
   "Aggregate Bar Chart" in {
     plot.vega
       .withUrl(Dataset.Population)
-      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/2.json"))
+      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/bar/2.json"))
       .html
       .browse()
   }
@@ -49,7 +49,7 @@ class BarChartsAndHistogramsSpec extends BaseSpec {
   "Aggregate Bar Chart (Sorted)" in {
     plot.vega
       .withUrl(Dataset.Population)
-      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/3.json"))
+      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/bar/3.json"))
       .html
       .browse()
   }
@@ -57,7 +57,7 @@ class BarChartsAndHistogramsSpec extends BaseSpec {
   "Histogram" in {
     plot.vega
       .withUrl(Dataset.Movies)
-      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/4.json"))
+      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/bar/4.json"))
       .html
       .browse()
   }
@@ -74,7 +74,7 @@ class BarChartsAndHistogramsSpec extends BaseSpec {
         Map("bin_start" -> 20, "bin_end" -> 22, "count" -> 17),
         Map("bin_start" -> 22, "bin_end" -> 24, "count" -> 5)
       ))
-      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/5.json"))
+      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/bar/5.json"))
       .html
       .browse()
   }
@@ -95,7 +95,7 @@ class BarChartsAndHistogramsSpec extends BaseSpec {
           Map("x" -> 500),
           Map("x" -> 800)
         ))
-      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/6.json"))
+      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/bar/6.json"))
       .html
       .browse()
   }
@@ -103,7 +103,7 @@ class BarChartsAndHistogramsSpec extends BaseSpec {
   "Grouped Bar Chart" in {
     plot.vega
       .withUrl(Dataset.Population)
-      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/7.json"))
+      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/bar/7.json"))
       .html
       .browse()
   }
@@ -111,7 +111,7 @@ class BarChartsAndHistogramsSpec extends BaseSpec {
   "Stacked Bar Chart" in {
     plot.vega
       .withUrl(Dataset.Seattle_Weather)
-      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/8.json"))
+      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/bar/8.json"))
       .html
       .browse()
   }
@@ -119,7 +119,7 @@ class BarChartsAndHistogramsSpec extends BaseSpec {
   "Horizontal Stacked Bar Chart" in {
     plot.vega
       .withUrl(Dataset.Barley)
-      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/9.json"))
+      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/bar/9.json"))
       .html
       .browse()
   }
@@ -127,7 +127,7 @@ class BarChartsAndHistogramsSpec extends BaseSpec {
   "Normalized (Percentage) Stacked Bar Chart" in {
     plot.vega
       .withUrl(Dataset.Population)
-      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/10.json"))
+      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/bar/10.json"))
       .html
       .browse()
   }
@@ -140,7 +140,7 @@ class BarChartsAndHistogramsSpec extends BaseSpec {
           Map("task" -> "B", "start" -> 3, "end" -> 8),
           Map("task" -> "C", "start" -> 8, "end" -> 10)
         ))
-      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/11.json"))
+      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/bar/11.json"))
       .html
       .browse()
   }
@@ -153,7 +153,7 @@ class BarChartsAndHistogramsSpec extends BaseSpec {
           Map("color" -> "green", "b" -> 55),
           Map("color" -> "blue", "b"  -> 43)
         ))
-      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/12.json"))
+      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/bar/12.json"))
       .html
       .browse()
   }
@@ -161,7 +161,7 @@ class BarChartsAndHistogramsSpec extends BaseSpec {
   "Layered Bar Chart" in {
     plot.vega
       .withUrl(Dataset.Population)
-      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/13.json"))
+      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/bar/13.json"))
       .html
       .browse()
   }
@@ -169,7 +169,7 @@ class BarChartsAndHistogramsSpec extends BaseSpec {
   "Diverging Stacked Bar Chart (Population Pyramid)" in {
     plot.vega
       .withUrl(Dataset.Population)
-      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/14.json"))
+      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/bar/14.json"))
       .html
       .browse()
   }
@@ -290,7 +290,7 @@ class BarChartsAndHistogramsSpec extends BaseSpec {
             "value"      -> 2,
             "percentage" -> 100)
       ))
-      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/15.json"))
+      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/bar/15.json"))
       .html
       .browse()
   }
@@ -299,7 +299,7 @@ class BarChartsAndHistogramsSpec extends BaseSpec {
     Map("a"-> "A", "b"-> 28),
     Map("a"-> "B", "b"-> 55),
     Map("a"-> "C", "b"-> 43)))
-      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/16.json"))
+      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/bar/16.json"))
       .html
       .browse()
   }

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": null,
+  "mark": {
+    "type": "line",
+    "tooltip": true
+  },
+  "width": {
+    "step": 50
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "scale": {
+        "padding": 0.5
+      }
+    },
+    "y": {
+      "aggregate": "median",
+      "field": "yield",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "site",
+      "type": "nominal",
+      "scale": {
+        "scheme": "set2"
+      },
+      "legend": {
+        "type": "symbol",
+        "symbolType": "stroke"
+      }
+    }
+  }
+}

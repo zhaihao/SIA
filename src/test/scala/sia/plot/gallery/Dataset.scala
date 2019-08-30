@@ -24,4 +24,5 @@ object Dataset {
   val Cars            = "https://vega.github.io/editor/data/cars.json"
   val GapMinder       = "https://vega.github.io/editor/data/gapminder-health-income.csv"
   val Disasters       = "https://vega.github.io/editor/data/disasters.csv"
+  val Stocks          = "https://vega.github.io/editor/data/stocks.csv"
 }

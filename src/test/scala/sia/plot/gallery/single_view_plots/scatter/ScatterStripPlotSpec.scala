@@ -5,13 +5,13 @@
  * Please visit http://ooon.me or mail to zhaihao@ooon.me
  */
 
-package sia.plot.gallery.single_view_plots
+package sia.plot.gallery.single_view_plots.scatter
 
 import os.RelPath
-import sia.plot.gallery.Dataset
-import test.BaseSpec
 import plot._
 import plot.spec.Themes
+import sia.plot.gallery.Dataset
+import test.BaseSpec
 
 /**
   * ScatterStripPlotSpec
@@ -25,7 +25,7 @@ class ScatterStripPlotSpec extends BaseSpec {
     plot.vega
       .theme(Themes.Vox)
       .withUrl(Dataset.Cars)
-      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/17.json"))
+      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/scatter/17.json"))
       .html
       .browse()
   }
@@ -34,7 +34,7 @@ class ScatterStripPlotSpec extends BaseSpec {
     plot.vega
       .theme(Themes.Vox)
       .withUrl(Dataset.Seattle_Weather)
-      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/18.json"))
+      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/scatter/18.json"))
       .html
       .browse()
   }
@@ -43,7 +43,7 @@ class ScatterStripPlotSpec extends BaseSpec {
     plot.vega
       .theme(Themes.Vox)
       .withUrl(Dataset.Cars)
-      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/19.json"))
+      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/scatter/19.json"))
       .html
       .browse()
   }
@@ -52,7 +52,7 @@ class ScatterStripPlotSpec extends BaseSpec {
     plot.vega
       .theme(Themes.Vox)
       .withUrl(Dataset.Cars)
-      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/20.json"))
+      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/scatter/20.json"))
       .html
       .browse()
   }
@@ -61,7 +61,7 @@ class ScatterStripPlotSpec extends BaseSpec {
     plot.vega
       .theme(Themes.Vox)
       .withUrl(Dataset.Movies)
-      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/21.json"))
+      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/scatter/21.json"))
       .html
       .browse()
   }
@@ -70,7 +70,7 @@ class ScatterStripPlotSpec extends BaseSpec {
     plot.vega
       .theme(Themes.Vox)
       .withUrl(Dataset.Cars)
-      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/22.json"))
+      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/scatter/22.json"))
       .html
       .browse()
   }
@@ -79,7 +79,7 @@ class ScatterStripPlotSpec extends BaseSpec {
     plot.vega
       .theme(Themes.Vox)
       .withUrl(Dataset.Movies)
-      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/23.json"))
+      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/scatter/23.json"))
       .html
       .browse()
   }
@@ -88,7 +88,7 @@ class ScatterStripPlotSpec extends BaseSpec {
     plot.vega
       .theme(Themes.Vox)
       .withUrl(Dataset.Cars)
-      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/24.json"))
+      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/scatter/24.json"))
       .html
       .browse()
   }
@@ -97,7 +97,7 @@ class ScatterStripPlotSpec extends BaseSpec {
     plot.vega
       .theme(Themes.Vox)
       .withUrl(Dataset.GapMinder)
-      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/25.json"))
+      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/scatter/25.json"))
       .html
       .browse()
   }
@@ -106,7 +106,7 @@ class ScatterStripPlotSpec extends BaseSpec {
     plot.vega
       .theme(Themes.Vox)
       .withUrl(Dataset.Disasters)
-      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/26.json"))
+      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/scatter/26.json"))
       .html
       .browse()
   }
@@ -115,7 +115,7 @@ class ScatterStripPlotSpec extends BaseSpec {
     plot.vega
       .theme(Themes.Vox)
       .withUrl(Dataset.Cars)
-      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/27.json"))
+      .viz(os.resource / RelPath("sia/plot/gallery/single_view_plots/scatter/27.json"))
       .html
       .browse()
   }
