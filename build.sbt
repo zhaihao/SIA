@@ -24,7 +24,7 @@ lazy val root = (project in file("."))
     moduleName          := "SIA",
     name                := "SIA",
     logBuffered in Test := false,
-    libraryDependencies ++= Seq(spark, slick, java_mail, akka).flatten,
+    libraryDependencies ++= Seq(spark, slick, java_mail, akka, breeze).flatten,
     libraryDependencies ++= Seq(os_lib,
                                 mysql,
                                 nscala,
@@ -32,7 +32,8 @@ lazy val root = (project in file("."))
                                 leveldb,
                                 requests,
                                 play_json,
-                                delta),
+                                delta,
+                                squants),
     scalacOptions in (Compile, doc) ++= Seq(
       "-implicits",
       "-groups",
